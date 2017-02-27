@@ -6,6 +6,7 @@
 module Main where
 
 import Euterpea
+import Interlude
 
 concertA, a440 ::(PitchClass,Octave)
 concertA       = (A, 4) -- concert A
@@ -22,4 +23,5 @@ wts p = let f ap = note qn (pitch (absPitch p + ap))
         in map f [0,2,4,6,8]
 
 main :: IO ()
-main = play (line (wts a440))
+-- main = play (line (wts a440))
+main = play childSong6
