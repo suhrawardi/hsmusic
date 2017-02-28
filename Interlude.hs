@@ -24,7 +24,7 @@ timesM n m = m :=: timesM (n - 1) m
 
 addDur :: Dur -> [Dur -> Music a] -> Music a
 addDur d ns = let f n = n d
-              in line (map f ns)
+              in (line . map f) ns
 
 graceNote :: Int -> Music Pitch -> Music Pitch
 graceNote n (Prim (Note d p)) = note (d/8) (trans n p) :+: note (7 * d/8) p
