@@ -46,5 +46,4 @@ v2 = line [cs 5 (dhn + dhn), d 5 dhn, f 5 hn, gs 5 qn, fs 5 (hn + en), g 5 en]
 
 childSong6 :: Music Pitch
 childSong6 = let t = (dhn / qn) * (69 / 120)
-             in instrument RhodesPiano
-                           (tempo t (bassLine :=: mainVoice))
+             in instrument RhodesPiano $ tempo t $ bassLine :=: mainVoice
