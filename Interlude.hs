@@ -7,6 +7,17 @@ module Interlude where
 
 import Euterpea
 
+prefixes :: [a] -> [[a]]
+prefixes []      = []
+prefixes (x: xs) = let f pf = x:pf
+                   in [x]:map f (prefixes xs)
+
+prefix :: [Music a] -> Music a
+prefix mel = let m1 = line (concat (prefixes mel))
+                 m2 = transpose 12 (line (concat (prefixes (reverse mel))))
+                 m = instrument Flute m1 :=: instrument VoiceOohs m2
+             in m :+: transpose 5 m :+: m
+
 timesM :: Int -> Music a -> Music a
 timesM 0 m = rest 0
 timesM n m = m :=: timesM (n - 1) m

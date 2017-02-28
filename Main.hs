@@ -22,6 +22,10 @@ wts :: Pitch -> [ Music Pitch ]
 wts p = let f ap = note qn (pitch (absPitch p + ap))
         in map f [0,2,4,6,8]
 
+mel1 = [c 5 en, e 5 sn, g 5 en, b 5 sn, a 5 en, f 5 sn, d 5 en, b 4 sn, c 5 en]
+mel2 = [c 5 sn, e 5 sn, g 5 sn, b 5 sn, a 5 sn, f 5 sn, d 5 sn, b 4 sn, c 5 sn]
+
 main :: IO ()
 -- main = play (line (wts a440))
-main = play childSong6
+-- main = play childSong6
+main = play (prefix mel2)
