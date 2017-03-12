@@ -7,6 +7,7 @@ module Main where
 
 import Euterpea
 import Interlude
+import MoreMusic
 
 concertA, a440 ::(PitchClass,Octave)
 concertA       = (A, 4) -- concert A
@@ -28,4 +29,5 @@ mel2 = [c 5 sn, e 5 sn, g 5 sn, b 5 sn, a 5 sn, f 5 sn, d 5 sn, b 4 sn, c 5 sn]
 main :: IO ()
 -- main = play (line (wts a440))
 -- main = play childSong6
-main = play (prefix mel2)
+-- main = play (prefix mel2)
+main = play pr12
